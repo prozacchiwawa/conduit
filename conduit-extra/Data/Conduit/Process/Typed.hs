@@ -98,7 +98,7 @@ withLoggedProcess_ pc inner = withUnliftIO $ \u -> do
   -- withProcessWait vs Term doesn't actually matter here, since we
   -- call checkExitCode inside regardless. But still, Wait is the
   -- safer function to use in general.
-  P.withProcessWait pc' $ \p -> do
+  P.withProcess_ pc' $ \p -> do
     a <- unliftIO u $ inner p
     let drain src = unliftIO u (runConduit (src .| CL.sinkNull))
     ((), ()) <- drain (getStdout p) `concurrently`

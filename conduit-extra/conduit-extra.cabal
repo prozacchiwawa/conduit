@@ -56,7 +56,8 @@ Library
                      , stm
                      , streaming-commons        >= 0.1.16
                      , unliftio-core
-                     , typed-process            >= 0.2.6
+                     , typed-process            >= 0.2.2.0 && <0.2.2.1
+                     , generic-deriving         >= 1.13 && <1.14
 
   ghc-options:     -Wall
 
